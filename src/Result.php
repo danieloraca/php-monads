@@ -1,24 +1,28 @@
 <?php
 
+declare(strict_types=1);
+
+namespace App;
+
 class Result
 {
-    private $value;
-    private $error;
+    private mixed $value;
+    private mixed $error;
 
     private function __construct($value = null, $error = null)
     {
-    	$this->value = $value;
-    	$this->error = $error;
+        $this->value = $value;
+        $this->error = $error;
     }
 
     public static function success($value): Result
     {
-        return new self($value);
+        return new self($value, null); // Ensure error is null
     }
 
     public static function error($error): Result
     {
-        return new self($error);
+        return new self(null, $error); // Ensure value is null
     }
 
     public function isSuccess(): bool
@@ -44,7 +48,6 @@ class Result
     {
         return $this->error;
     }
-    
 }
 
 // implementation
@@ -55,12 +58,16 @@ function divide($numerator, $denominator): Result
         return Result::error("Cannot divide by 0");
     }
 
-    return Result::success($numerator / $denominator);
+    $numerator = (float) $numerator;
+    $denominator = (float) $denominator;
+
+    $result = $numerator / $denominator;
+    return Result::success($result);
 }
 
 $result = divide(10, 0) //error
     ->map(function($result) {
-        return $result * 2; // this will not run due to error
+        return (int) $result * 2; // this will not run due to error
     });
 
 if ($result->isSuccess()) {
