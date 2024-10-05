@@ -14,7 +14,7 @@ jobs:
 
     strategy:
       matrix:
-        php-version: ['8.1', '8.2']
+        php-version: [8.3']
         # You can add more versions if needed.
 
     steps:
