@@ -39,7 +39,7 @@ class Result
         return self::success($f($this->value));
     }
 
-    public function getOrElse($default)
+    public function getOrElse($default): mixed
     {
         return $this->isSuccess() ? $this->value : $default;
     }
