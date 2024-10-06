@@ -13,7 +13,7 @@ The `Result` monad provides methods like `map()`, `getOrElse()`, and `isSuccess(
 #Monads in Rust and Haskell
 Monads are a powerful abstraction for managing side effects, chaining computations, and handling errors in a functional programming style.
 
-##Haskell:
+#Haskell:
 * Monads are core to Haskell and are used to handle effects like I/O, state, and errors without leaving pure functional programming. 
 
 They provide a way to sequence operations while keeping code clean and composable.
@@ -22,7 +22,7 @@ They provide a way to sequence operations while keeping code clean and composabl
 
 * Example: The Maybe monad helps avoid null reference errors, as it explicitly defines the presence (`Just`) or absence (`Nothing`) of a value.
 
-##Rust:
+#Rust:
 * Rust uses monads through types like `Result` and `Option`, which are very similar to Haskell's `Either` and `Maybe`.
 
 * Rust’s monads allow for safe handling of errors and optional values, avoiding the common pitfalls of null pointers and unchecked errors.
