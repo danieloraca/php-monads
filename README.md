@@ -10,7 +10,7 @@ The `Result` monad provides methods like `map()`, `getOrElse()`, and `isSuccess(
 
 * Error Case: Propagates an error without breaking the chain of operations.
 
-#Monads in Rust and Haskell
+# Monads in Rust and Haskell
 Monads are a powerful abstraction for managing side effects, chaining computations, and handling errors in a functional programming style.
 
 # Haskell:
