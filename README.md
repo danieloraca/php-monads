@@ -28,29 +28,3 @@ They provide a way to sequence operations while keeping code clean and composabl
 * Rust’s monads allow for safe handling of errors and optional values, avoiding the common pitfalls of null pointers and unchecked errors.
 
 * Rust encourages composition through monadic operations like `.map()`, `.and_then()`, and pattern matching, making error-handling elegant and type-safe.
-
-* Example:
-```
-fn divide(numerator: f64, denominator: f64) -> Result<f64, String> {
-    if denominator == 0.0 {
-        Err("Cannot divide by zero".to_string())
-    } else {
-        Ok(numerator / denominator)
-    }
-}
-
-fn double(value: f64) -> f64 {
-    value * 2.0
-}
-
-fn main() {
-    let result = divide(10.0, 2.0)
-        .map(double) // If the result is Ok, double the value
-        .unwrap_or_else(|err| {
-            println!("Error: {}", err);
-            0.0 // Default fallback value if there's an error
-        });
-
-    println!("Final result: {}", result); // Output: Final result: 10.0
-}
-```
