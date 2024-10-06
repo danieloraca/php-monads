@@ -4,7 +4,7 @@ This project demonstrates a simple Monad implementation in PHP using a Result cl
 
 It encapsulates both success and error states, allowing safe chaining of operations without explicit error checking. 
 
-The Result monad provides methods like map(), getOrElse(), and isSuccess() to handle operations and results in a functional style.
+The `Result` monad provides methods like `map()`, `getOrElse()`, and `isSuccess()` to handle operations and results in a functional style.
 
 * Success Case: Encapsulates a value for further processing.
 
