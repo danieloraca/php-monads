@@ -66,15 +66,13 @@ function divide($numerator, $denominator): Result
 }
 
 $result = divide(10, 0) //error
-    ->map(function($result) {
+    ->map(function ($result) {
         return (int) $result * 2; // this will not run due to error
     });
 
-if ($result->isSuccess()) {
-    echo "Result: " . $result->getOrElse(0); // Shows the result if no error
-} else {
-    echo "Error: " . $result->getError();
-}
+echo match ($result->isSuccess()) {
+    true => "Result: " . $result->getOrElse(0),
+    false => "Error: " . $result->getError(),
+};
 
 // boom, monads!
-
