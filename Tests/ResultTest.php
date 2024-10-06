@@ -8,7 +8,7 @@ use function App\divide; // Import the divide() function
 
 class ResultTest extends TestCase
 {
-    public function testSuccessResult()
+    public function testSuccessResult(): void
     {
         $result = Result::success(10);
 
@@ -19,7 +19,7 @@ class ResultTest extends TestCase
         $this->assertEquals(10, $result->getOrElse(0));
     }
 
-    public function testErrorResult()
+    public function testErrorResult(): void
     {
         $result = Result::error("An error occurred");
 
@@ -30,7 +30,7 @@ class ResultTest extends TestCase
         $this->assertEquals("An error occurred", $result->getError());
     }
 
-    public function testMapFunctionOnSuccess()
+    public function testMapFunctionOnSuccess(): void
     {
         $result = Result::success(5);
 
@@ -44,7 +44,7 @@ class ResultTest extends TestCase
         $this->assertEquals(10, $mappedResult->getOrElse(0));
     }
 
-    public function testMapFunctionOnError()
+    public function testMapFunctionOnError(): void
     {
         $result = Result::error("An error occurred");
 
@@ -58,7 +58,7 @@ class ResultTest extends TestCase
         $this->assertEquals("An error occurred", $mappedResult->getError());
     }
 
-    public function testGetOrElseFunction()
+    public function testGetOrElseFunction(): void
     {
         $result = Result::error("Something went wrong");
 
@@ -70,7 +70,7 @@ class ResultTest extends TestCase
         $this->assertEquals(10, $resultSuccess->getOrElse(0));
     }
 
-    public function testDivideFunctionSuccess()
+    public function testDivideFunctionSuccess(): void
     {
         $result = divide(10, 2);
 
@@ -79,7 +79,7 @@ class ResultTest extends TestCase
         $this->assertEquals(5, $result->getOrElse(0));
     }
 
-    public function testDivideFunctionError()
+    public function testDivideFunctionError(): void
     {
         $result = divide(10, 0);
 
@@ -88,7 +88,7 @@ class ResultTest extends TestCase
         $this->assertEquals("Cannot divide by 0", $result->getError());
     }
 
-    public function testChainedMapAfterError()
+    public function testChainedMapAfterError(): void
     {
         $result = divide(10, 0) // division by 0 results in error
         ->map(function ($value) {
@@ -100,7 +100,7 @@ class ResultTest extends TestCase
         $this->assertEquals("Cannot divide by 0", $result->getError());
     }
 
-    public function testChainedMapAfterSuccess()
+    public function testChainedMapAfterSuccess(): void
     {
         $result = divide(10, 2) // Successful division
         ->map(function ($value) {
