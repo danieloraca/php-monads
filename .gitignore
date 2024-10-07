@@ -1,3 +1,5 @@
 /vendor/
 composer.lock
 .idea
+haskell-example/*.hi
+haskell-example/*.o
